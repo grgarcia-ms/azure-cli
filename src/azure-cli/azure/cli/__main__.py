@@ -12,6 +12,7 @@ import azure.cli.core.telemetry as telemetry
 try:
     telemetry.start()
     args = sys.argv[1:]
+    # args = ["vienna", "computecontext", "attach","-a", "127.0.0.0", "-u", "Bob2", "-p", "pass"]
 
     # Check if we are in argcomplete mode - if so, we
     # need to pick up our args from environment variables

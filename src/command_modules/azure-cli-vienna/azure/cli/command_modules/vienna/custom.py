@@ -9,14 +9,14 @@ from azure.cli.core._util import CLIError
 
 logger = azlogging.get_az_logger(__name__)
 
-def attach(address = None, username= None, password = None):
+def attach(name= None, address = None, username= None, password = None):
 	"""Attach to compute context"""
 
-	fo = open("context.cc", "w")
-	fo.write( "targets:\n\tremote:\n\t\taddress: " + address + "\n\t\tusername: " + username + "\n\t\tpassword: " + password)
+	fo = open(name +".cc", "w")
+	fo.write( name+ ":\n\taddress: " + address + "\n\tusername: " + username + "\n\tpassword: " + password)
 	fo.close()
 
-	return "Executed vienna command attach"
+	return "Compute context attached."
 
 def detach(name = None):
 	"""Detach compute context"""
@@ -24,4 +24,10 @@ def detach(name = None):
 	if name:
 		print("Detach")
 
-	return "Executed vienna command detach"
+	return "Compute context detached."
+
+def listc(arguments = None, xtra=None ):
+	"""List of compute context"""
+
+	if arguments:
+		print(*arguments)
